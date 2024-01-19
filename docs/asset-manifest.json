@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6a07aa43.css",
+    "main.js": "/static/js/main.e1736e6c.js",
+    "static/media/ganado-patagonia.jpg": "/static/media/ganado-patagonia.d6207b73f12dc1a610cb.jpg",
+    "static/media/vaca-patagonia.jpg": "/static/media/vaca-patagonia.c5f077e4b960cf9528d6.jpg",
+    "static/media/LOGO-MONTECARLO.svg": "/static/media/LOGO-MONTECARLO.ab5529b0a18a6de623ab5208654eec31.svg",
+    "index.html": "/index.html",
+    "static/media/menu-svgrepo-com.svg": "/static/media/menu-svgrepo-com.74e8cff8ab28cd26daae85342f3a6d5d.svg",
+    "main.6a07aa43.css.map": "/static/css/main.6a07aa43.css.map",
+    "main.e1736e6c.js.map": "/static/js/main.e1736e6c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6a07aa43.css",
+    "static/js/main.e1736e6c.js"
+  ]
+}
