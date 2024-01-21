@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/frigorifico/static/css/main.6a07aa43.css",
-    "main.js": "/frigorifico/static/js/main.363f00f9.js",
+    "main.css": "/frigorifico/static/css/main.aa5ecc06.css",
+    "main.js": "/frigorifico/static/js/main.12d6622a.js",
     "static/media/ganado-patagonia.jpg": "/frigorifico/static/media/ganado-patagonia.d6207b73f12dc1a610cb.jpg",
     "static/media/vaca-patagonia.jpg": "/frigorifico/static/media/vaca-patagonia.c5f077e4b960cf9528d6.jpg",
-    "static/media/LOGO-MONTECARLO.svg": "/frigorifico/static/media/LOGO-MONTECARLO.ab5529b0a18a6de623ab5208654eec31.svg",
+    "static/media/LOGO-MONTECARLO.svg": "/frigorifico/static/media/LOGO-MONTECARLO.da22de65f36c0efa82c0c274dbc32b35.svg",
     "index.html": "/frigorifico/index.html",
     "static/media/menu-svgrepo-com.svg": "/frigorifico/static/media/menu-svgrepo-com.74e8cff8ab28cd26daae85342f3a6d5d.svg",
-    "main.6a07aa43.css.map": "/frigorifico/static/css/main.6a07aa43.css.map",
-    "main.363f00f9.js.map": "/frigorifico/static/js/main.363f00f9.js.map"
+    "main.aa5ecc06.css.map": "/frigorifico/static/css/main.aa5ecc06.css.map",
+    "main.12d6622a.js.map": "/frigorifico/static/js/main.12d6622a.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a07aa43.css",
-    "static/js/main.363f00f9.js"
+    "static/css/main.aa5ecc06.css",
+    "static/js/main.12d6622a.js"
   ]
 }

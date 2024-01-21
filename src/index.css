@@ -7,13 +7,13 @@ body {
 }
 
 
-body::-webkit-scrollbar {
-  width: 0px; /* Adjust as needed */
+/* body::-webkit-scrollbar {
+  width: 0px;
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: transparent;
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
