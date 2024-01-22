@@ -34,20 +34,21 @@ h1, p {
   width: 100vw;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   font-family: 'Nunito sans', sans-serif;
   font-weight: 900;
   margin-bottom: -8vh;
   }
 
-.logo {
+.mainLogo {
+  position: absolute;
+  left: 0px;
   height: 80%;
   padding-left: 5%;
 }
 
-.divider {
+.pcButtons {
   display: flex;
-  align-items: center;
-  margin-left: auto;
 }
 
 .navBtn {
@@ -55,19 +56,20 @@ h1, p {
   padding-right: 1vw;
   text-align: center;
   font-size: 1rem;
+  display: flex;
 }
 
 .menuLogo {
   margin-top: -2px;
   height: 1.5rem;
   padding: 10px;
-  padding-right: 2vw;
-  margin-left: auto;
+  padding-right: calc(2vw + 14px);
+  display: flex;
 }
 
 /* ------------------------------BACKGROUND STYLES------------------------------ */
 .background {
-  height: 92%;
+  height: calc(100% - 8vh);
   width: 100%;
   background-size: cover;
   background-position: center;

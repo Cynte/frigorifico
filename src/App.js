@@ -21,9 +21,7 @@ function App() {
         <ChangingText/>
       </div>
 
-        <div className="placeholder">DESCRIPCIÓN SOBRE LA EMPRESA, SU MISIÓN, FILOSOFÍA, ETC</div>
-
-        <div className="placeholder">LO QUE GARANTIZA/OFRECE LA EMPRESA</div>
+        <div className="placeholder">SECCIÓN CON LO QUE GARANTIZA/OFRECE LA EMPRESA</div>
 
         <div className="placeholder">SECCIÓN SOBRE PRODUCTOS Y CALIDAD</div>
 
@@ -33,7 +31,7 @@ function App() {
 
         <div className="placeholder">SECCIÓN DE MAPAS Y MERCADOS</div>
 
-        <div className="placeholder">PERSONAS DE LA EMPRESA, CONTACTO Y REDES</div>
+        <div className="placeholder">SECCIÓN DE PERSONAS DE LA EMPRESA, CONTACTO Y REDES</div>
 
     </div>
   );

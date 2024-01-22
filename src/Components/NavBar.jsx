@@ -3,8 +3,8 @@ import menuLogo from '../Resources/menu-svgrepo-com.svg'
 
 const NavBar = ({logo}) => {
 
-  const [isWideEnough, setIsWideEnough] = useState(false)
-
+  const [visible, setVisible] = useState(false)
+  const [isWideEnough, setIsWideEnough] = useState(true)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -23,16 +23,20 @@ const NavBar = ({logo}) => {
 
   }, [window.scrollY])
 
+  const burgerClickHandler = ()=> {
+    setVisible(!visible)
+  }
+
   return (
     <div className='navBar'>
-      <img className='logo' src={logo} alt='logo'/>
-      <div className='divider'>
-        {isWideEnough && isScrolled && <a className='navBtn'>INICIO</a>}
-        {isWideEnough && isScrolled && <a className='navBtn'>SOBRE NOSOTROS</a>}
-        {isWideEnough && isScrolled && <a className='navBtn'>PRODUCTOS</a>}
-        {isWideEnough && isScrolled && <a className='navBtn'>CONTACTO</a>}
-        <img className='menuLogo' src={menuLogo} alt="menuLogo" />
-      </div>
+      <img className='mainLogo' src={logo} alt='logo'/>
+      {isWideEnough && <div className='pcButtons'>
+        {visible && <a className='navBtn'>INICIO</a>}
+        {visible && <a className='navBtn'>SOBRE NOSOTROS</a>}
+        {visible && <a className='navBtn'>PRODUCTOS</a>}
+        {visible && <a className='navBtn'>CONTACTO</a>}
+      </div>}
+        <img onClick={()=>{burgerClickHandler()}} className='menuLogo' src={menuLogo} alt="menuLogo" />
     </div>
   )
 }
