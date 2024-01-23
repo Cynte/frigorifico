@@ -1,24 +1,25 @@
 import ChangingBackgrounds from "./Components/ChangingBackgrounds.jsx";
-import NavBar from "./Components/NavBar.jsx"
 import ChangingText from "./Components/ChangingText.jsx"
-import logo from "./Resources/LOGO-MONTECARLO.svg"
-import image1 from "./Resources/ganado-patagonia.jpg"
-import image2 from "./Resources/vaca-patagonia.jpg"
+import NavBar from "./Components/NavBar.jsx"
+import logo from "./Resources/Images/mainLogo2.png"
+import image from "./Resources/Images/ovinos-patagonia-6.jpg"
 import './App.css'
 
 const images = [
-  
+  image
 ]
 
-function App() {
+function App({language}) {
   return (
     <div>
 
-        <NavBar logo={logo}/>
+      <NavBar text= {language.navText} logo={logo}/>
 
       <div className="home">
+
         <ChangingBackgrounds images={images}/>
-        <ChangingText/>
+        <ChangingText text={language.homeText}/>
+
       </div>
 
         <div className="placeholder">SECCIÓN CON LO QUE GARANTIZA/OFRECE LA EMPRESA</div>

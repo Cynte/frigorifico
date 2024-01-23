@@ -1,14 +1,16 @@
+:root {
+  --navBar-height: 8vh;
+  --anim-timing: 200ms ease-in-out
+}
+
 /* ------------------------------APP.JS STYLES------------------------------ */
 h1, p {
   margin:0
 }
 
 .home {
-  padding-top: 8vh;
-  height: 92vh;
+  height: 100vh;
   width: 100vw;
-
-  background-color: black;
 }
 
 .placeholder {
@@ -26,50 +28,190 @@ h1, p {
 }
 
 /* ------------------------------NAVBAR STYLES------------------------------ */
-.navBar {
+#navBar {
   position: sticky;
   top: 0px;
-  background-color: brown;
-  height: 8vh;
+  height: var(--navBar-height);
   width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-family: 'Nunito sans', sans-serif;
   font-weight: 900;
-  margin-bottom: -8vh;
-  }
+  margin-bottom: calc(var(--navBar-height)*-1);
+
+  transition: background-color 0.3s ease-in-out;
+}
+
+.unscrolled {
+  background-color: transparent;
+}
+
+.scrolled {
+  background-color: #7e1416;
+}
+
+.scrolled .mainLogo {
+  top: -48px;
+}
+
+.scrolled .rightSide * {
+  color: white;
+}
+
+.leftSide {
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 150px;
+}
+
+.rightSide {
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.flagLogo {
+  display: flex;
+  height: 22.5px;
+  min-width: 37.5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0px 10px
+}
+
+#englishFlagLogo {
+  background-image: url('./Resources/Images/englishLogo.png');
+}
+
+#spanishFlagLogo {
+  background-image: url('./Resources/Images/spanishLogo.png');
+}
 
 .mainLogo {
   position: absolute;
-  left: 0px;
-  height: 80%;
-  padding-left: 5%;
+  top: 1vh;
+  left: 0;
+  height: 100px;
+  margin-right: 5px;
+  transition: top var(--anim-timing);
 }
 
-.pcButtons {
+#navButtons {
   display: flex;
+  transition: left 3s ease-in-out;
 }
 
-.navBtn {
+.unreveal {
+  animation: unreveal 1s ease-out forwards;
+}
+
+.reveal {
+  animation: reveal 1s ease-in-out forwards;
+}
+
+@keyframes reveal {
+  from {
+    transform: translateX(120%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes unreveal {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+#navButtons * {
   padding-left: 2vw;
   padding-right: 1vw;
   text-align: center;
   font-size: 1rem;
   display: flex;
+  color: rgb(50, 50, 50);
 }
 
-.menuLogo {
-  margin-top: -2px;
+@media (max-width: 800px) {
+  #navButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 8vh;
+    padding-right: 16px;
+  }
+}
+
+.burgerMenu {
+  margin-top: 2px;
   height: 1.5rem;
   padding: 10px;
-  padding-right: calc(2vw + 14px);
+  margin-right: calc(2vw + 14px);
   display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 3px;
+  width: max-content;
+  align-items: center;
+}
+
+.burgerMenu::before,
+.burgerMenu::after,
+.burgerMenu input {
+  content: "";
+  height: 3.5px;
+  background-color: rgb(50, 50, 50);
+  border-radius: 9999px;
+  transition: rotate var(--anim-timing), opacity var(--anim-timing), width var(--anim-timing);
+  transform-origin: right center;
+}
+
+.burgerMenu::before {
+  rotate: -45deg;
+  width: 18px;
+}
+
+.burgerMenu:has(input:checked)::before {
+  rotate: 0deg;
+  width: 20px;
+}
+
+.burgerMenu::after {
+  rotate: 45deg;
+  width: 18px;
+}
+
+.burgerMenu:has(input:checked):after {
+  rotate: 0deg;
+  width: 20px;
+}
+
+.burgerMenu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  pointer-events: none;
+  opacity: 0;
+  width: 0;
+}
+
+.burgerMenu input:checked {
+  opacity: 1;
+  width: 20px;
 }
 
 /* ------------------------------BACKGROUND STYLES------------------------------ */
 .background {
-  height: calc(100% - 8vh);
+  height: 100%;
   width: 100%;
   background-size: cover;
   background-position: center;

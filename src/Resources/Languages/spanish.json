@@ -1,0 +1,12 @@
+{"homeText": {
+    "Misión": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu lorem elementum, condimentum erat quis, volutpat tortor. Suspendisse auctor maximus nunc, at lacinia felis auctor in. Aenean eget commodo orci. Duis maximus vulputate tellus ut elementum. Sed interdum laoreet dui.",
+    "Filosofía": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac velit nec ex cursus consectetur in at urna. Sed non finibus augue. Pellentesque sed odio ut ante scelerisque tempus sit amet eget augue. Aliquam felis leo, laoreet ac nisi imperdiet.",
+    "Nosotros": "Desde 1998, somos una empresa líder en la Industria Frigorífica. Contamos con una planta industrial moderna dedicada al procesamiento y faena de carnes de animales criados en la Patagonia Argentina. Estamos equipados con la última tecnología; que nos permite posicionarnos como un proveedor confiable de productos cárnicos."
+},
+
+"navText": [
+    "INICIO",
+    "SOBRE NOSOTROS",
+    "PRODUCTOS",
+    "CONTACTO"]
+}

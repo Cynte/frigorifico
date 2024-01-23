@@ -1,0 +1,12 @@
+{"homeText": {
+    "Mission": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu lorem elementum, condimentum erat quis, volutpat tortor. Suspendisse auctor maximus nunc, at lacinia felis auctor in. Aenean eget commodo orci. Duis maximus vulputate tellus ut elementum. Sed interdum laoreet dui.",
+    "Philosophy": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac velit nec ex cursus consectetur in at urna. Sed non finibus augue. Pellentesque sed odio ut ante scelerisque tempus sit amet eget augue. Aliquam felis leo, laoreet ac nisi imperdiet.",
+    "About us": "Since 1998, we have been a leading company in the Refrigeration Industry. We have a modern industrial plant dedicated to the processing and slaughter of meats from animals raised in the Argentine Patagonia. Equipped with the latest technology, we position ourselves as a reliable provider of meat products."
+},
+
+"navText": [
+    "HOME",
+    "ABOUT US",
+    "PRODUCTS",
+    "CONTACT US"]
+}
