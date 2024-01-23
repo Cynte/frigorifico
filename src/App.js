@@ -3,7 +3,6 @@ import ChangingText from "./Components/ChangingText.jsx"
 import NavBar from "./Components/NavBar.jsx"
 import logo from "./Resources/Images/mainLogo2.png"
 import image from "./Resources/Images/ovinos-patagonia-6.jpg"
-import './App.css'
 
 const images = [
   image
