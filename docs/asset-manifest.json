@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/frigorifico/static/css/main.c286824d.css",
-    "main.js": "/frigorifico/static/js/main.339951a0.js",
+    "main.css": "/frigorifico/static/css/main.eb1ab6cf.css",
+    "main.js": "/frigorifico/static/js/main.376d89e5.js",
     "static/media/ovinos-patagonia-6.jpg": "/frigorifico/static/media/ovinos-patagonia-6.a63a91b2a8d09dbb30b6.jpg",
-    "static/media/mainLogo2.png": "/frigorifico/static/media/mainLogo2.549790ea4e7238b1b4cf.png",
+    "static/media/mainLogo.png": "/frigorifico/static/media/mainLogo.c6bd0d70c905c7f93c0f.png",
     "index.html": "/frigorifico/index.html",
-    "main.c286824d.css.map": "/frigorifico/static/css/main.c286824d.css.map",
-    "main.339951a0.js.map": "/frigorifico/static/js/main.339951a0.js.map"
+    "main.eb1ab6cf.css.map": "/frigorifico/static/css/main.eb1ab6cf.css.map",
+    "main.376d89e5.js.map": "/frigorifico/static/js/main.376d89e5.js.map"
   },
   "entrypoints": [
-    "static/css/main.c286824d.css",
-    "static/js/main.339951a0.js"
+    "static/css/main.eb1ab6cf.css",
+    "static/js/main.376d89e5.js"
   ]
 }

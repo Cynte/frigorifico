@@ -1,15 +1,25 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom'
 
 const NavBar = ({text, logo}) => {
 
-  const [animation, setAnimation] = useState('reveal')
-  const [isScrolled, setIsScrolled] = useState('unscrolled')
+  const [reveal, setReveal] = useState('unreveal')
+  const [isScrolled, setIsScrolled] = useState('navBarUnscrolled')
+
+  const burgerMenu = useRef(null)
+
+  useEffect(() => {
+    const timerId = setTimeout(()=>{burgerMenu.current.click()},2000)
+    
+    return ()=>clearTimeout(timerId)
+  }
+  , [])
+  
 
   useEffect(() => {
     const scrollHandler = ()=>{
-      window.scrollY < 1 && setIsScrolled('unscrolled')
-      window.scrollY > 0 && setIsScrolled('scrolled')
+      window.scrollY < 200 && setIsScrolled('navBarUnscrolled')
+      window.scrollY >= 200 && setIsScrolled('navBarScrolled')
     }
     window.addEventListener('scroll', scrollHandler)
 
@@ -19,35 +29,29 @@ const NavBar = ({text, logo}) => {
   }, [window.scrollY])
 
   const burgerClickHandler = ()=> {
-    if (animation==='reveal') {setAnimation('unreveal')}
-    else {setAnimation('reveal')}
+    if (reveal==='reveal') {setReveal('unreveal')}
+    else {setReveal('reveal')}
   }
 
   return (
     <div id='navBar' className={isScrolled}>
 
-      <div className='leftSide'>
-
-          <Link className='flagLogo' id='spanishFlagLogo' to='/'/>
-          <Link className='flagLogo' id='englishFlagLogo' to='/en'/>
-
-      </div>
-      
       <img className='mainLogo' src={logo} alt='logo'/>
 
-      <div className='rightSide'>
+      <li id='navButtons'className={reveal}>
+        <Link className='spanishFlagLogo' to='/'/>
+        <Link className='englishFlagLogo' to='/en'/>
+        <Link className='chineseFlagLogo' to='/ch'/>
+        <a className='navBtn'>{text[0]}</a>
+        <a className='navBtn'>{text[1]}</a>
+        <a className='navBtn'>{text[2]}</a>
+        <a className='navBtn'>{text[3]}</a>
+      </li>
+      <label ref={burgerMenu} className='burgerMenu'>
+        <input type='checkbox' onClick={()=>{burgerClickHandler()}}/>
+      </label>
 
-        <li id='navButtons' className={animation}>
-          <a>{text[0]}</a>
-          <a>{text[1]}</a>
-          <a>{text[2]}</a>
-          <a>{text[3]}</a>
-        </li>
-        <label className='burgerMenu'>
-          <input type='checkbox' onClick={()=>{burgerClickHandler()}}/>
-        </label>
-
-      </div>
+      <div className='invisibleCloak'/>
     </div>
   )
 }
