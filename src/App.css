@@ -265,7 +265,7 @@ h1, p {
   font-family: 'Montserrat';
   font-weight: var(--h1Font-weight);
   color: white;
-  text-shadow: 2px 2px 4px black;
+  text-shadow: 4px 4px 4px black;
 }
 
 .changingH1 {
