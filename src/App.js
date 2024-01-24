@@ -2,7 +2,7 @@ import ChangingBackgrounds from './Components/ChangingBackgrounds.jsx';
 import ChangingText from './Components/ChangingText.jsx';
 import NavBar from './Components/NavBar.jsx';
 import logo from './Resources/Images/mainLogo.png';
-import image from './Resources/Images/ovinos-patagonia-6.jpg';
+import image from './Resources/Images/fondo.png';
 import './App.css';
 
 const images = [image];
