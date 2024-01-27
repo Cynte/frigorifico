@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/frigorifico/static/css/main.ed387de1.css",
+    "main.js": "/frigorifico/static/js/main.c0da8f8d.js",
+    "static/media/fondo.png": "/frigorifico/static/media/fondo.9c84a2a9cb3800885f89.png",
+    "static/media/mainLogo.png": "/frigorifico/static/media/mainLogo.c6bd0d70c905c7f93c0f.png",
+    "index.html": "/frigorifico/index.html",
+    "main.ed387de1.css.map": "/frigorifico/static/css/main.ed387de1.css.map",
+    "main.c0da8f8d.js.map": "/frigorifico/static/js/main.c0da8f8d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed387de1.css",
+    "static/js/main.c0da8f8d.js"
+  ]
+}
