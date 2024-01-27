@@ -10,9 +10,8 @@ const images = [image];
 function App({ language }) {
   return (
     <div className='wholePage'>
-      
       <NavBar text={language.navText} logo={logo} />
-
+      
       <div className='home'>
         <ChangingBackgrounds images={images} />
         <ChangingText text={language.homeText} />

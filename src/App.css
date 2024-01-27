@@ -5,14 +5,16 @@
 
 :root {
   --navBar-height: 10vh;
+  --navBar-height-scrolled: 9vh;
+  --navBar-width: 85vw;
   --navBar-timing: 0.3s ease-in-out;
-  --anim-timing: 200ms ease-in-out;
+  --anim-timing: 150ms ease-in-out;
   --palette-white: #EFEFEF;
   --palette-red: #7E1519;
   --burgerLine-width: 40px;
-  --burgerLine-height: 5px;
+  --burgerLine-height: 4px;
   --burgerLine-gap: 8px;
-  --burgerLine-right: 15px;
+  --burgerLine-right: 2%;
   --navBarFont-weight: 500;
   --h1-font-weight: 700;
   --p-font-weight: 100;
@@ -31,7 +33,7 @@ h1, p {
 }
 
 .home {
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
 }
 
@@ -48,9 +50,23 @@ h1, p {
   border: 3px dashed darkcyan;
   margin: 1vw;
 }
+/* ------------------------------BACKGROUND STYLES------------------------------ */
+.changingBackground {
+  top: 0;
+  left: 0;
+  height: 120%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
 
 /* ------------------------------NAVBAR STYLES------------------------------ */
-.navBarUnscrolled, .navBarScrolled {
+.navBar {
   overflow: hidden;
   position: sticky;
   display: flex;
@@ -58,45 +74,63 @@ h1, p {
   justify-content: space-between;
   font-family: 'Montserrat';
   background-color: var(--palette-red);
-  height: var(--navBar-height);
   font-weight: var(--navBarFont-weight);
-  z-index: 9;
-}
-
-.navBarUnscrolled, .navBarScrolled, .navBarUnscrolled *, .navBarScrolled * {
-  transition: top var(--navBar-timing), width var(--navBar-timing), height var(--navBar-timing);
-}
-
-.navBarUnscrolled {
-  --navBar-height: 10vh;
+  transition: top var(--navBar-timing), width var(--navBar-timing), height var(--navBar-timing), margin-bottom var(--navBar-timing);
+  z-index: 0;
   top: 5vh;
-  width: 90vw;
+  width: var(--navBar-width);
+  height: var(--navBar-height);
+  margin-bottom: calc(-1*var(--navBar-height));
 }
-.navBarScrolled {
-  --navBar-height: 9vh;
+
+.scrolled {
   top: 0;
   width: 100vw;
+  height: var(--navBar-height-scrolled);
+  margin-bottom: calc(-1*var(--navBar-height-scrolled));
 }
 
-.unreveal .navBtn {
+.mainLogo {
+  height: var(--navBar-height);
+  margin-left: 15px;
+}
+
+.clickablesContainer {
+  display: flex;
+  transition: left 3s ease-in-out;
+  align-items: center;
+  flex: 1;
+}
+
+.navBtn {
+  margin-right: 15px;
+  text-align: center;
+  font-size: 1rem;
+  display: flex;
+  color: #EFEFEF;
   transition: opacity 0.5s ease-in;
   opacity: 0;
   animation: unrevealBtn 1s ease-out forwards;
 }
 
-.unreveal .englishFlagLogo, .unreveal .spanishFlagLogo, .unreveal .chineseFlagLogo {
-  transition: opacity 0.8s ease-in;
-  opacity: 0;
-  animation: unrevealFlag 1s ease-out forwards;
-}
-.reveal .navBtn {
-  transition: opacity 0.5s ease-in;
+.revealed .navBtn {
   opacity: 1;
   animation: revealBtn 1s ease-in-out forwards;
 }
 
-.reveal .englishFlagLogo, .reveal .spanishFlagLogo, .reveal .chineseFlagLogo {
+.flag {
+  display: flex;
+  height: 22.5px;
+  min-width: 37.5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 15px;
   transition: opacity 0.8s ease-in;
+  opacity: 0;
+  animation: unrevealFlag 1s ease-out forwards;
+}
+
+.revealed .flag {
   opacity: 1;
   animation: revealFlag 1s ease-in-out forwards;
 }
@@ -129,48 +163,27 @@ h1, p {
   }
 }
 
-.spanishFlagLogo, .chineseFlagLogo, .englishFlagLogo {
-  display: flex;
-  height: 22.5px;
-  min-width: 37.5px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-right: 15px;
-}
-
-.spanishFlagLogo {
+.spanishFlag {
   background-image: url('./Resources/Images/spanishLogo.png');
 }
 
-.englishFlagLogo {
+.englishFlag {
   background-image: url('./Resources/Images/englishLogo.png');
 }
 
-.chineseFlagLogo {
+.chineseFlag {
   background-image: url('./Resources/Images/chineseLogo.png');
   margin-right: auto;
 }
 
-.mainLogo {
-  height: var(--navBar-height);
-  margin-left: 15px;
+.gradient {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, transparent 50%, rgb(245, 225, 160) 300%);
+  pointer-events: none;
+  z-index: 1;
 }
-
-#navButtons {
-  display: flex;
-  transition: left 3s ease-in-out;
-  align-items: center;
-  flex: 1;
-}
-
-.navBtn {
-  margin-right: 15px;
-  text-align: center;
-  font-size: 1rem;
-  display: flex;
-  color: #EFEFEF;
-}
-
 /* ------------------------------BURGER MENU STYLES------------------------------ */
 .burgerMenu {
   box-sizing: content-box;
@@ -180,32 +193,24 @@ h1, p {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  gap: 4px;
   padding: 100px 10px;
   padding-right: var(--burgerLine-right);
   background-color: var(--palette-red);
-  z-index: 10;
   transition: gap var(--anim-timing);
+  gap: var(--burgerLine-gap);
+  z-index: 1;
 }
 
 .burgerMenu::before,
-.burgerMenu::after,
-.burgerMenu input {
+.burgerMenu div,
+.burgerMenu::after {
   content: "";
   transform-origin: right center;
   border-radius: 0px;
   height: var(--burgerLine-height);
   background-color: var(--palette-white);
   transition: rotate var(--anim-timing), opacity var(--anim-timing), width var(--anim-timing);
-}
-
-.burgerMenu:not(:has(input:checked)) {
-  gap: var(--burgerLine-gap)
-}
-
-.burgerMenu:has(input:checked)::before {
-  rotate: -45deg;
-  width: 25px;
+  z-index: 2;
 }
 
 .burgerMenu::before {
@@ -213,44 +218,37 @@ h1, p {
   rotate: 0deg;
 }
 
+.burgerMenu div {
+  width: var(--burgerLine-width);
+  opacity: 1;
+}
+
 .burgerMenu::after {
   rotate: 0deg;
   width: var(--burgerLine-width);
 }
 
-.burgerMenu:has(input:checked):after {
+/* IF CHECKED */
+
+.revealed .burgerMenu {
+  gap: 5px
+}
+
+.revealed .burgerMenu::before {
+  rotate: -45deg;
   width: 25px;
-  rotate: 45deg;
 }
 
-.burgerMenu input {
-  appearance: none;
-  padding: 0;
-  margin: 0;
-  outline: none;
-  pointer-events: none;
-  width: var(--burgerLine-width);
-  opacity: 1;
-}
-
-.burgerMenu input:checked {
+.revealed .burgerMenu div {
   opacity: 0;
   width: 0;
 }
 
-/* ------------------------------BACKGROUND STYLES------------------------------ */
-.background {
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
+.revealed .burgerMenu::after {
+  rotate: 45deg;
+  width: 25px;
 }
+
 
 /* ------------------------------ANIMATED TEXT STYLES------------------------------ */
 .changingTextContainer {

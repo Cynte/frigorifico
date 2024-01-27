@@ -12,7 +12,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const basename = process.env.PUBLIC_URL;
 
 root.render(
-  <React.StrictMode>
     <BrowserRouter basename={basename}>
       <Routes>
         <Route path='/' element={<App language={spanish} />} />
@@ -20,5 +19,4 @@ root.render(
         <Route path='/ch' element={<App language={chinese} />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
 );

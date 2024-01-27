@@ -1,57 +1,54 @@
-import {React, useState, useEffect, useRef} from 'react'
+import {React, useState, useEffect as onMount} from 'react'
 import { Link } from 'react-router-dom'
 
 const NavBar = ({text, logo}) => {
 
-  const [reveal, setReveal] = useState('unreveal')
-  const [isScrolled, setIsScrolled] = useState('navBarUnscrolled')
+  const [revealedClass, setRevealedClass] = useState('')
+  const [scrolledClass, setScrolledClass] = useState('')
 
-  const burgerMenu = useRef(null)
-
-  useEffect(() => {
-    const timerId = setTimeout(()=>{burgerMenu.current.click()},2000)
-    
-    return ()=>clearTimeout(timerId)
+  const scrollHandler = ()=>{
+    window.scrollY < 200 && setScrolledClass('')
+    window.scrollY < 200 && setRevealedClass('')
+    window.scrollY >= 200 && setScrolledClass('scrolled')
+    window.scrollY >= 200 && setRevealedClass('revealed')
   }
-  , [])
-  
 
-  useEffect(() => {
-    const scrollHandler = ()=>{
-      window.scrollY < 200 && setIsScrolled('navBarUnscrolled')
-      window.scrollY >= 200 && setIsScrolled('navBarScrolled')
-    }
+  onMount(() => {
     window.addEventListener('scroll', scrollHandler)
+    console.log('event added')
 
     return ()=>{
       window.removeEventListener('scroll', scrollHandler)
     }
-  }, [window.scrollY])
+  }, [])
 
   const burgerClickHandler = ()=> {
-    if (reveal==='reveal') {setReveal('unreveal')}
-    else {setReveal('reveal')}
+    window.removeEventListener('scroll', scrollHandler)
+    console.log('event removed?')
+    if (revealedClass==='revealed') {setRevealedClass('')}
+    else {setRevealedClass('revealed')}
   }
 
   return (
-    <div id='navBar' className={isScrolled}>
-
+    <div className={'navBar ' + scrolledClass}>
       <img className='mainLogo' src={logo} alt='logo'/>
 
-      <li id='navButtons'className={reveal}>
-        <Link className='spanishFlagLogo' to='/'/>
-        <Link className='englishFlagLogo' to='/en'/>
-        <Link className='chineseFlagLogo' to='/ch'/>
+      <li className={'clickablesContainer ' + revealedClass}>
+        <Link className='flag spanishFlag' to='/'/>
+        <Link className='flag englishFlag' to='/en'/>
+        <Link className='flag chineseFlag' to='/ch'/>
+        
         <a className='navBtn'>{text[0]}</a>
         <a className='navBtn'>{text[1]}</a>
         <a className='navBtn'>{text[2]}</a>
         <a className='navBtn'>{text[3]}</a>
-      </li>
-      <label ref={burgerMenu} className='burgerMenu'>
-        <input type='checkbox' onClick={()=>{burgerClickHandler()}}/>
-      </label>
 
-      <div className='invisibleCloak'/>
+        <div className='burgerMenu' onClick={()=>{burgerClickHandler()}}>
+          <div/>
+        </div>
+      </li>
+
+      <div className='gradient'/>
     </div>
   )
 }
