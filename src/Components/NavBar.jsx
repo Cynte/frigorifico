@@ -1,4 +1,4 @@
-import {React, useState, useEffect as onMount} from 'react'
+import {React, useState, useEffect as onMount, useCallback} from 'react'
 import { Link } from 'react-router-dom'
 
 const NavBar = ({text, logo}) => {
@@ -6,25 +6,26 @@ const NavBar = ({text, logo}) => {
   const [revealedClass, setRevealedClass] = useState('')
   const [scrolledClass, setScrolledClass] = useState('')
 
-  const scrollHandler = ()=>{
-    window.scrollY < 200 && setScrolledClass('')
-    window.scrollY < 200 && setRevealedClass('')
-    window.scrollY >= 200 && setScrolledClass('scrolled')
-    window.scrollY >= 200 && setRevealedClass('revealed')
-  }
+  const scrolledOnScroll = useCallback(()=> {
+    setScrolledClass(window.scrollY > 200 ? 'scrolled' : '')
+  }, []
+  )
+
+  const revealedOnScroll = useCallback(() => {
+        setRevealedClass(window.scrollY > 200 ? 'revealed' : '')
+      }, []
+  )
 
   onMount(() => {
-    window.addEventListener('scroll', scrollHandler)
-    console.log('event added')
-
+    window.addEventListener('scroll', scrolledOnScroll)
+    window.addEventListener('scroll', revealedOnScroll)
     return ()=>{
-      window.removeEventListener('scroll', scrollHandler)
+      window.removeEventListener('scroll', scrolledOnScroll)
     }
-  }, [])
+  }, [scrolledOnScroll])
 
   const burgerClickHandler = ()=> {
-    window.removeEventListener('scroll', scrollHandler)
-    console.log('event removed?')
+    window.removeEventListener('scroll', revealedOnScroll)
     if (revealedClass==='revealed') {setRevealedClass('')}
     else {setRevealedClass('revealed')}
   }
